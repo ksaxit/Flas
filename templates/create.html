@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    List
+{%endblock%}
+
+
+{% block content %}
+    <div class="container mt-5">
+      <h1>Все участники проекта:</h1>
+      {% if article|length > 0 %}
+        <div class="container">
+          <div class="alert alert-info">
+            {% for el in article %}
+            <h1>{{ el.firstname }}
+              {{ el.secondname }}
+              ({{ el.username }})</h1>
+            <h4><b>Дата регистрации: {{ el.date.date() }}</b></h4>
+            <div class="container">
+              <h3>{{ el.about_you }}</h3>
+            </div>
+            <a href="/create/{{ el.id}}" class="btn btn-warning">Подробнее</a>
+            {%endfor%}
+
+          </div>
+      {% else %}
+          <p>У нас пока нет ни одной записи</p>
+      {%endif%}
+      </div>
+
+    </div>
+{%endblock%}

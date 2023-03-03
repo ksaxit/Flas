@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Ознакомление
+{%endblock%}
+
+
+{% block content %}
+    <div class="container mt-5">
+      <div class="container">
+          <h1>{{ article.firstname }}
+            {{ article.secondname }}
+            ({{ article.username }})</h1>
+        <div class="alert alert-info">
+          <h4><b>Дата регистрации: {{ article.date.date() }}</b></h4>
+          <div class="container">
+            <h3>{{ article.about_you }}</h3>
+          </div>
+            <a href="/create/{{ article.id }}/del" class="btn btn-danger">Удалить</a>
+            <a href="/create/{{ article.id }}/update" class="btn btn-success">Редактировать</a>
+
+
+
+        </div>
+      </div>
+
+    </div>
+{%endblock%}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Редактирование
+{%endblock%}
+
+
+{% block content %}
+    <h1>Редактирование профиля</h1>
+    <form method="post">
+        <input type="text" name="firstname" id="firstname" class="form-control" value="{{ article.firstname }}" placeholder="Введите имя"><br>
+        <input type="text" name="secondname" id="secondname" class="form-control" value="{{ article.secondname }}" placeholder="Введите фамилию"><br>
+        <input type="text" name="username" id="username" class="form-control" value="{{ article.username }}" placeholder="Введите ник"><br>
+        <textarea name="about_you" id="about_you" class="form-control" placeholder="Расскажите о себе">{{ article.about_you }}</textarea><br>
+        <input type="submit" class="btn btn-success" value="Обновить">
+    </form>
+{%endblock%}

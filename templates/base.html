@@ -1,0 +1,128 @@
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{%endblock%}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+
+
+</head>
+
+<body>
+<header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Главная</a></li>
+        <li class="nav-item"><a href="/create" class="nav-link">Список участников</a></li>
+        <li class="nav-item"><a class="btn btn-warning" href="/create-article">Создание профиля</a></li>
+
+
+    </ul>
+</header>
+<hr class="featurette-divider">
+<div class="container">
+    <h1>{% block content%} {%endblock%}</h1>
+</div>
+    <hr class="featurette-divider">
+
+<div class="container marketing">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="https://sun9-4.userapi.com/impf/YUR8jzPmmfe5tMoiYaOkLHe4E_XVEELMa1GHAQ/Hs5BkIv_3kE.jpg?size=810x1080&amp;quality=96&amp;sign=162544d3afb68210a063aa6e238fadaf&amp;type=album" alt="" style="border-radius: 200px; border: 3px solid black; box-shadow: 0 0 7px #666; max-width: 450px; max-height: 350px;">
+
+
+            <h2 class="fw-normal">Пятница</h2>
+            <p>Скрытный и загадочный человек, но если он увлечеться тем что вы ему дадите, конвейер идей заработает в 2
+                раза продуктивнее.</p>
+            <p><a class="btn btn-secondary" href="/Piatnica">Подробнее</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <img src="https://sun9-33.userapi.com/impg/aztzhrRKli-TclWvAm7kPJoCkgBH04UaiLaDiA/o4QyZ5xyJII.jpg?size=720x960&amp;quality=95&amp;sign=d25b4875814cbeb353b435a1b2c6b9c5&amp;type=album" alt="" style="border-radius: 200px; border: 3px solid black; box-shadow: 0 0 7px #666; max-width: 450px; max-height: 350px;">
+            <h2 class="fw-normal">Дмитрий Петрович</h2>
+            <p>Нервный и вспыльчивый человечек, не особо любит сложности, поэтому старается как можно быстрее с ними
+                справиться.</p>
+            <p><a class="btn btn-secondary" href="/Dmitri">Подробнее</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <img src="https://sun9-75.userapi.com/impg/lcmdHR6ISH_tQkdX_jvI5LbIfz_qKr2l_N21ig/0h7Q-SvEktc.jpg?size=936x1080&amp;quality=95&amp;sign=30b82725840410962d833f847cd1894c&amp;type=album" alt="" style="border-radius: 200px; border: 3px solid black; box-shadow: 0 0 7px #666; max-width: 450px; max-height: 350px;">
+            <h2 class="fw-normal">Стеф</h2>
+            <p>Вечно устремленный ввысь парень, много амбиций но в той же мере много других отвлекающих факторов.</p>
+            <p><a class="btn btn-secondary" href="/Stef">Подробнее</a></p>
+        </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+
+
+
+<!--    <hr class="featurette-divider">-->
+
+<!--    <div class="row featurette">-->
+<!--        <div class="col-md-7">-->
+<!--            <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-muted">It’ll blow your mind.</span>-->
+<!--            </h2>-->
+<!--            <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose-->
+<!--                here.</p>-->
+<!--        </div>-->
+<!--        <div class="col-md-5">-->
+<!--            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"-->
+<!--                 height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"-->
+<!--                 preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>-->
+<!--                <rect width="100%" height="100%" fill="#eee"></rect>-->
+<!--                <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>-->
+<!--            </svg>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <hr class="featurette-divider">-->
+
+<!--    <div class="row featurette">-->
+<!--        <div class="col-md-7 order-md-2">-->
+<!--            <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span>-->
+<!--            </h2>-->
+<!--            <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this-->
+<!--                layout would work with some actual real-world content in place.</p>-->
+<!--        </div>-->
+<!--        <div class="col-md-5 order-md-1">-->
+<!--            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"-->
+<!--                 height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"-->
+<!--                 preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>-->
+<!--                <rect width="100%" height="100%" fill="#eee"></rect>-->
+<!--                <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>-->
+<!--            </svg>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <hr class="featurette-divider">-->
+
+<!--    <div class="row featurette">-->
+<!--        <div class="col-md-7">-->
+<!--            <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span-->
+<!--                    class="text-muted">Checkmate.</span></h2>-->
+<!--            <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really-->
+<!--                intended to be actually read, simply here to give you a better view of what this would look like with-->
+<!--                some actual content. Your content.</p>-->
+<!--        </div>-->
+<!--        <div class="col-md-5">-->
+<!--            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"-->
+<!--                 height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"-->
+<!--                 preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>-->
+<!--                <rect width="100%" height="100%" fill="#eee"></rect>-->
+<!--                <text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>-->
+<!--            </svg>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <hr class="featurette-divider">-->
+
+
+
+</div>
+
+</body>
+</html>
+
