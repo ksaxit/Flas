@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Создание записи
+{%endblock%}
+
+
+{% block content %}
+    <h1>Созданние профиля</h1>
+    <form method="post">
+        <input type="text" name="username" id="username" class="form-control" placeholder="Введите ник"><br>
+        <input type="text" name="game_name" id="game_name" class="form-control" placeholder="Введите название игры"><br>
+        <input type="text" name="complexity" id="complexity" class="form-control" placeholder="Введите уровень сложности"><br>
+        <textarea name="passage" id="passage" class="form-control" placeholder="Краткий рассказ по прохождению"></textarea><br>
+        <input type="submit" class="btn btn-success" value="Отправить">
+    </form>
+{%endblock%}
