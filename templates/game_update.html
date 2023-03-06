@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Редактирование
+{%endblock%}
+
+
+{% block content %}
+    <h1>Редактирование профиля</h1>
+    <form method="post">
+        <input type="text" name="username" id="username" class="form-control" value="{{ games.username }}" placeholder="Введите нки"><br>
+        <input type="text" name="game_name" id="game_name" class="form-control" value="{{ games.game_name }}" placeholder="Введите название игры"><br>
+        <input type="text" name="complexity" id="complexity" class="form-control" value="{{ games.complexity }}" placeholder="Введите сложность"><br>
+        <textarea name="passage" id="passage" class="form-control" placeholder="Краткий рассказ по прохождению">{{ games.passage }}</textarea><br>
+        <input type="submit" class="btn btn-success" value="Обновить">
+    </form>
+{%endblock%}

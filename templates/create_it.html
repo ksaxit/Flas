@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Создание записи
+{%endblock%}
+
+
+{% block content %}
+    <h1>Созданние записи</h1>
+    <form method="post">
+        <input type="text" name="username" id="username" class="form-control"  placeholder="Введите ник"><br>
+        <input type="text" name="project" id="project" class="form-control"  placeholder="Введите название проекта"><br>
+        <input type="text" name="reference" id="reference" class="form-control"  placeholder="Укажите ссылку на проект(GitHub)"><br>
+        <textarea name="about_project" id="about_project" class="form-control" placeholder="Кратко о проекте"></textarea><br>
+        <input type="submit" class="btn btn-success" value="Добавить">
+    </form>
+{%endblock%}

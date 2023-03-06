@@ -1,25 +1,25 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Игры
+    IT
 {%endblock%}
 
 {% block content %}
-<a class="btn btn-warning" href="/create-game">Создание записи</a>
+<a class="btn btn-warning" href="/create-it">Создать проект</a>
     <div class="container mt-5">
-      <h1>Игры</h1>
-      {% if games|length > 0 %}
+      <h1>Список проектов</h1>
+      {% if its|length > 0 %}
         <div class="container">
           <div class="alert alert-info">
-            {% for el in games %}
+            {% for el in its %}
             <h1>{{ el.username }}</h1>
-              {{ el.game_name }}
-              ({{ el.complexity }})
+              {{ el.project }}
+              ({{ el.reference }})
             <h4><b>Дата регистрации: {{ el.date.date() }}</b></h4>
             <div class="container">
-              <h3>{{ el.passage }}</h3>
+              <h3>{{ el.about_project }}</h3>
             </div>
-            <a href="/game/{{ el.id }}" class="btn btn-warning">Подробнее</a>
+            <a href="/it/{{ el.id }}" class="btn btn-warning">Подробнее</a>
 
             {%endfor%}
 

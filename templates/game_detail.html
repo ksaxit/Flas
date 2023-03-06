@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Ознакомление
+{%endblock%}
+
+
+{% block content %}
+    <div class="container mt-5">
+      <div class="container">
+          <h1>{{ games.username }}
+            {{ games.game_name }}
+            ({{ games.complexity }})</h1>
+        <div class="alert alert-info">
+          <h4><b>Дата регистрации: {{ games.date.date() }}</b></h4>
+          <div class="container">
+            <h3>{{ games.passage }}</h3>
+          </div>
+            <a href="/game/{{ games.id }}/update" class="btn btn-success">Редактировать</a>
+
+
+
+        </div>
+      </div>
+
+    </div>
+{%endblock%}

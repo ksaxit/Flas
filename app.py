@@ -8,8 +8,21 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///game.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///it.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+
+class It(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(100), nullable=False)
+    project = db.Column(db.String(300), nullable=False)
+    reference = db.Column(db.String(300), nullable=False)
+    about_project = db.Column(db.Text, nullable=False)
+    date = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def __repr__(self):
+        return '<It %r>' % self.id
 
 class Article(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -36,12 +49,20 @@ class Game(db.Model):
         return '<Game %r>' % self.id
 
 
-
+@app.route('/it')
+def it():
+    its = It.query.order_by(It.date.desc()).all()
+    return render_template('it.html', its=its)
 @app.route('/game')
 def game():
     games = Game.query.order_by(Game.date.desc()).all()
     return render_template('game.html', games=games)
 
+
+@app.route('/game/<int:id>')
+def game_detail(id):
+    games = Game.query.get(id)
+    return render_template('game_detail.html', games=games)
 
 @app.route('/from_here')
 @app.route('/here')
@@ -150,6 +171,41 @@ def create_game():
         return render_template('create_game.html')
 
 
+@app.route('/game/<int:id>/update', methods=["POST", "GET"])
+def game_update(id):
+    games = Game.query.get(id)
+    if request.method == "POST":
+        games.username = request.form['username']
+        games.game_name = request.form['game_name']
+        games.complexity = request.form['complexity']
+        games.passage = request.form['passage']
+        try:
+            db.session.commit()
+            return redirect('/game')
+        except:
+            return "При редактировании профиля возникла ошибка"
+
+    else:
+        return render_template('game_update.html', games=games)
+
+
+@app.route('/create-it', methods=["POST", "GET"])
+def create_it():
+    if request.method == "POST":
+        username = request.form['username']
+        project = request.form['project']
+        reference = request.form['reference']
+        about_project = request.form['about_project']
+        its = It(username=username, project=project, reference=reference, about_project=about_project)
+        try:
+            db.session.add(its)
+            db.session.commit()
+            return redirect('/it')
+        except:
+            return "При добавлении профиля возникла ошибка"
+
+    else:
+        return render_template('create_it.html')
 
 if __name__ == '__main__':
 
