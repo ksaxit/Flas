@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Спорт
+{%endblock%}
+
+{% block content %}
+<a class="btn btn-warning" href="/create-game">Создание записи</a>
+    <div class="container mt-5">
+      <h1>Спорт</h1>
+      {% if rabota|length > 0 %}
+        <div class="container">
+          <div class="alert alert-info">
+            {% for el in rabota %}
+            <h1>{{ el.username }}</h1>
+              {{ el.sports }}
+              ({{ el.stage_sport }})
+            <h4><b>Дата регистрации: {{ el.date.date() }}</b></h4>
+            <div class="container">
+              <h3>{{ el.about_sport }}</h3>
+            </div>
+            <a href="/sport/{{ el.id }}" class="btn btn-warning">Подробнее</a>
+
+            {%endfor%}
+
+          </div>
+      {% else %}
+          <p>У нас пока нет ни одной записи</p>
+      {%endif%}
+
+      </div>
+
+    </div>
+{%endblock%}

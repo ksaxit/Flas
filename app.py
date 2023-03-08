@@ -10,9 +10,35 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///game.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///it.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///sport.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///rab.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
+class Rab(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(100), nullable=False)
+    rabota = db.Column(db.String(300), nullable=False)
+    staj = db.Column(db.String(300), nullable=False)
+    about_rabota = db.Column(db.Text, nullable=False)
+    date = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def __repr__(self):
+        return '<Rab %r>' % self.id
+
+
+class Sport(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(100), nullable=False)
+    sports = db.Column(db.String(300), nullable=False)
+    stage_sport = db.Column(db.String(300), nullable=False)
+    about_sport = db.Column(db.Text, nullable=False)
+    date = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def __repr__(self):
+        return '<Sport %r>' % self.id
 class It(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), nullable=False)
@@ -47,6 +73,18 @@ class Game(db.Model):
 
     def __repr__(self):
         return '<Game %r>' % self.id
+
+
+@app.route('/rabota')
+def rabota():
+    rabota = Rab.query.order_by(Rab.date.desc()).all()
+    return render_template('rabota.html', rabota=rabota)
+
+
+@app.route('/sport')
+def sport():
+    sport = Sport.query.order_by(Sport.date.desc()).all()
+    return render_template('sport.html', sport=sport)
 
 
 @app.route('/it')
