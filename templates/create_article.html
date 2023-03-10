@@ -7,11 +7,12 @@
 
 {% block content %}
     <h1>Созданние профиля</h1>
-    <form method="post">
+    <form enctype="multipart/form-data" method="post">
         <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Введите имя"><br>
         <input type="text" name="secondname" id="secondname" class="form-control" placeholder="Введите фамилию"><br>
         <input type="text" name="username" id="username" class="form-control" placeholder="Введите ник"><br>
         <textarea name="about_you" id="about_you" class="form-control" placeholder="Расскажите о себе"></textarea><br>
+
         <input type="submit" class="btn btn-success" value="Отправить">
     </form>
 {%endblock%}

@@ -178,6 +178,7 @@ def create_article():
         secondname = request.form['secondname']
         username = request.form['username']
         about_you = request.form['about_you']
+
         article = Article(firstname=firstname, secondname=secondname, username=username, about_you=about_you)
         try:
             db.session.add(article)
