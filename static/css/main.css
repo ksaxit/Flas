@@ -1,3 +1,27 @@
-body {
-    background : aqua;
+@media screen { /* Стиль для отображения в браузере */
+    body {
+        background-image : url(../img/фото1.jpg);
+        background-size: cover;
+
+        font-family: Arial, Verdana, sans-serif; /* Рубленый шрифт */
+         font-size: 90%; /* Размер шрифта */
+         color: #000080; /* Цвет текста */
+
+        H1 {
+         background: #faf0e6; /* Цвет фона */
+         border: 2px dashed maroon; /* Рамка вокруг заголовка */
+         color: #a0522d; /* Цвет текста */
+         padding: 7px; /* Поля вокруг текста */
+        }
+        H2 {
+         color: #556b2f; /* Цвет текста */
+         margin: 0; /* Убираем отступы */
+        }
+        P {
+         margin-top: 0.5em; /* Отступ сверху */
+        }
+
+
+    }
 }
+
